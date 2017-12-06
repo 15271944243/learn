@@ -1,0 +1,88 @@
+#同时存在yml和properties会优先使用properties
+com.yml:
+  name: "jdbc"
+  title: "jdbc-spring-boot"
+  age: 12
+  number: ${random.int}
+  max: ${random.int(10)}
+  value: ${random.value}
+
+---
+spring:
+  profiles: dev1
+  application:
+      name: learnSpringBoot
+  datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://120.25.216.91:3306/EQT?useSSL=true&verifyServerCertificate=false&useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
+      username: eqt
+      password: eqt0000
+  thymeleaf:
+      encoding: UTF-8
+      mode: HTML5
+      prefix: classpath:/templates/
+      suffix: .html
+      check-template: true
+      cache: false
+  http:
+      multipart:
+          max-file-size: 5MB
+          max-request-size: 10MB
+  redis:
+      database: 0   #数据库索引,默认为0
+      host: 120.25.216.91
+      port: 6379
+      password: redis
+  rabbitmq:
+      host: 120.25.216.91
+      port: 5672
+      username: guest
+      password: rabbitmq123
+  data:
+      mongodb:
+          host: 120.25.216.91
+          port: 27017
+          database: test
+  kafka:
+      bootstrap-servers: 120.25.216.91:9092
+      consumer:
+          group-id: myGruop
+          key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+          value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      template:
+          default-topic: test
+      listener:
+          concurrency: 3
+      producer:
+          key-serializer: org.apache.kafka.common.serialization.StringSerializer
+          value-serializer: org.apache.kafka.common.serialization.StringSerializer
+          #batch-size: 1000
+          #buffer-memory: 524288
+mybatis:
+  mapper-locations: classpath*:mybatis/*Mapper.xml
+  type-aliases-package: com.mybatis.model
+server:
+  port: 8081
+
+---
+spring:
+  profiles: test
+server:
+  port: 8082
+
+---
+spring:
+  profiles: prod
+server:
+  port: 8083
+
+---
+spring:
+  profiles:
+    active: dev1
+
+#jpa
+#---
+#jpa:
+#  hibernate:
+#    dd1-auto:  update
