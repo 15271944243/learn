@@ -1,8 +1,10 @@
-package xxx.bio;
+package xxx.bio2;
 
-import xxx.bio2.HandlerExecutorPool;
+import xxx.bio.ServerHandler;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -14,12 +16,10 @@ public class Server {
         try{
             server = new ServerSocket(PORT);
             System.out.println("server start .. ");
-            Socket socket = null;
-            HandlerExecutorPool executorPool = new HandlerExecutorPool(50, 1000);
-            while(true){
-                socket = server.accept();
-                executorPool.execute(new ServerHandler(socket));
-            }
+            //进行阻塞
+            Socket socket = server.accept();
+            //新建一个线程执行客户端的任务
+            new Thread(new ServerHandler(socket)).start();
         }catch (Exception e){
             e.printStackTrace();
         }finally {
