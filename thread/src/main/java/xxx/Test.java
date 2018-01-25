@@ -1,5 +1,9 @@
 package xxx;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Test extends App{
 
 
@@ -116,6 +120,21 @@ public class Test extends App{
             i++ ;
             foo('D');
         }
+
+        Test2 t1 = new Test2("a");
+        Test2 t2 = new Test2("b");
+        Test2 t3 = new Test2("c");
+        List<Test2> l = new ArrayList<>();
+        l.add(t1);
+        l.add(t2);
+        l.add(t3);
+        Test2[] arr = l.toArray(new Test2[]{});
+        System.out.println(arr);
+
+        String[] arr2 = new String[]{"a","v","c"};
+        List<String> strList = Arrays.asList(arr2);
+        strList.add("f");
+        System.out.println("----------");
     }
 
     static boolean foo(char c)

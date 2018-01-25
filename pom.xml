@@ -62,9 +62,12 @@
             <id>spring-snapshots</id>
             <name>Spring Snapshots</name>
             <url>https://repo.spring.io/libs-snapshot</url>
-            <snapshots>
+            <releases>
                 <enabled>true</enabled>
-            </snapshots>
+            </releases>
+            <!--<snapshots>
+                <enabled>true</enabled>
+            </snapshots>-->
         </repository>
     </repositories>
 </project>
