@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class Test4 {
     public static void main(String[] args) {
-        String fileName = "E:\\monitor.log";
+        String fileName = "C:\\Users\\19089\\Desktop\\智能客服生产环境日志\\monitor_03_04.log";
         File file = new File(fileName);
         BufferedReader reader = null;
         List<String> list = new ArrayList<>();
@@ -20,7 +20,7 @@ public class Test4 {
             int line = 1;
             // 一次读入一行，直到读入null为文件结束
             while ((tempString = reader.readLine()) != null) {
-                System.out.println("line " + line + ": " + tempString);
+                // System.out.println("line " + line + ": " + tempString);
                 if(line%2 == 0){
                     list.add(tempString);
                 }
@@ -79,13 +79,13 @@ public class Test4 {
             System.out.println(s);
         }*/
         try {
-            PrintWriter pw = new PrintWriter(new FileWriter("E:\\logResult.txt"));
+            PrintWriter pw = new PrintWriter(new FileWriter("F:\\logResult.txt"));
             pw.println("用户输入的总消息数:" + total);
             pw.println("进入相似度匹配的消息数:" + enterSimnt + ",占总数的:" + df.format((float)enterSimnt/total));
             pw.println("未进入相似度匹配的消息数:" + unEnterSimnt + ",占总数的:" + df.format((float)unEnterSimnt/total));
-            pw.println("相似度匹配成功的消息数(得分高于0.6,方差高于0.01):" + match + ",占进入相似度匹配总数的:" + df.format((float)match/enterSimnt));
-            pw.println("相似度匹配未成功的消息数:" + unMatch + ",占进入相似度匹配总数的:" + df.format((float)unMatch/enterSimnt));
-            pw.println("相似度匹配成功的消息如下:");
+            pw.println("相似度匹配有结果的消息数(得分高于0.6,方差高于0.01):" + match + ",占进入相似度匹配总数的:" + df.format((float)match/enterSimnt));
+            pw.println("相似度匹配没有结果的消息数:" + unMatch + ",占进入相似度匹配总数的:" + df.format((float)unMatch/enterSimnt));
+            pw.println("相似度匹配有结果的消息如下:");
             for(String s : matchMsgList){
                 pw.println(s);
             }

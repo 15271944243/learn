@@ -2,6 +2,7 @@ package xxx;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -29,6 +30,12 @@ public class App<T> {
     }
 
     public static void main(String[] args) {
+        String str = UUID.randomUUID().toString();
+        long d1 = System.currentTimeMillis();
+        // str += "_1";
+        new StringBuffer(str).append("_1");
+        long d2 = System.currentTimeMillis();
+        System.out.println(d2 - d1);
         /*String MOBILEPHONE_CONTAINS = "1[3|4|5|7|8][0-9]{9}";
         String WECHART_CONTAINS = "[a-zA-Z]{1}[-_a-zA-Z0-9]{5,19}";
         String msg = "微信号wx234234ffsf234342423";

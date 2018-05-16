@@ -44,4 +44,9 @@ public class Lesson05 {
         System.out.println(~2);
 
     }
+
+    private void aaa(Integer a,String b){}
+    private void aaa(String b,Integer a){}
+
+
 }
