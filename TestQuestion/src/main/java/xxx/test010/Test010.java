@@ -27,5 +27,11 @@ public class Test010 {
             //list.remove(index);
             index ++;
         }*/
+        Test010 t = new Test010();
+        t.aaa();
+    }
+
+    public static void  aaa(){
+        System.out.println(111);
     }
 }
