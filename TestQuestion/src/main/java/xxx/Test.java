@@ -33,7 +33,6 @@ public class Test {
         Long l2 = 1L;
         Long l3 = 128L;
         Long l4 = 128L;
-
         System.out.println(i0 == i1);
         System.out.println(i1 == i2);
         System.out.println(i3 == i4);
@@ -48,5 +47,10 @@ public class Test {
         Integer a1 = 134;
         int a2 = 134;
         System.out.println(a1 == a2);
+
+        System.out.println(100 + 5 + "ss");
+
+        byte q1 = 2;
+        short s = 16;
     }
 }
