@@ -17,6 +17,7 @@
         <module>arithmetic</module>
         <module>designPattern</module>
         <module>TestQuestion</module>
+        <module>lambda</module>
     </modules>
 
     <properties>
